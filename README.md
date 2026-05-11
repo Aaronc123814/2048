@@ -6,9 +6,9 @@ No GPU. The hot path is millions of small lookups, which the CPU + Numba JIT han
 
 ## Demo
 
-https://github.com/Aaronc123814/2048/assets/gameplay.mp4
+<video src="https://github.com/Aaronc123814/2048/releases/download/v0.1/gameplay.mp4" controls width="480"></video>
 
-If the embed doesn't render, grab the file directly: [`gameplay.mp4`](./gameplay.mp4).
+If the embed doesn't render in your viewer, [download or watch the clip directly](https://github.com/Aaronc123814/2048/releases/download/v0.1/gameplay.mp4).
 
 ## Results
 
