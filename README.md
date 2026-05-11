@@ -43,7 +43,24 @@ Evaluations are 200 greedy games (no learning) at the listed episode count. Full
 | --- | --- |
 | [`2048_ntuple_td.ipynb`](./2048_ntuple_td.ipynb) | Full implementation: engine, features, training loop, evaluation |
 | [`training_log.csv`](./training_log.csv) | Per-200-episode log: max tile, score, rolling 2048/4096 rates, ep/s |
-| [`gameplay.mp4`](./gameplay.mp4) | Recorded gameplay from a trained checkpoint |
+| `ntuple_weights.npy` (release asset) | Trained N-tuple weights — `(4, 16^6)` `float32`, ~256 MB |
+| `gameplay.mp4` (release asset) | Recorded gameplay from the trained checkpoint |
+
+## Loading the trained weights
+
+The weights are too large for git (256 MB), so they ship as a release asset. Download from [release v0.1](https://github.com/Aaronc123814/2048/releases/tag/v0.1) or with `curl`:
+
+```bash
+curl -LO https://github.com/Aaronc123814/2048/releases/download/v0.1/ntuple_weights.npy
+```
+
+Then resume training, or run pure greedy evaluation, by dropping the file next to the notebook — the training loop already auto-resumes from `ntuple_weights.npy` when it exists. For inference only:
+
+```python
+import numpy as np
+weights = np.load("ntuple_weights.npy")          # shape (4, 16777216), float32
+# pass weights into select_best / evaluate_episode from the notebook
+```
 
 ## References
 
